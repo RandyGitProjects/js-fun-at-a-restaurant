@@ -14,19 +14,29 @@ for (var i = 0; i < deliveryOrders.length; i++) {
  }
 }
 
-function listItems (item, orderNumber) {
+function listItems (item) {
   var newString = ''
-  if (orderNumber === orderNumber) {
-   console.log(newString.concat(item))
-  }
-//  var newString = ''
-//  newString = newString + item 
-//  console.log(newString)
+  for (var i = 0; i < item.length; i++) {
+    newString += item[i].item
+    if (i < item.length - 1)
+      newString += ', '
+    }
+    return newString
 }
+
+function searchOrder(deliveryOrders, itemName) {
+  for (i = 0; i <deliveryOrders.length; i++)
+  if (deliveryOrders[i].item === itemName) {
+    return true
+  }
+  return false
+}
+
+
 
 module.exports = {
   takeOrder,
   refundOrder,
   listItems,
-  // searchOrder
+  searchOrder
 }
